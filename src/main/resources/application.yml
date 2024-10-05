@@ -1,0 +1,50 @@
+spring:
+  devtools:
+    restart:
+      enabled: false
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?allowPublicKeyRetrieval=true&useSSL=false
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      max-lifetime: 45000
+      keepalive-time: 40000
+      idle-timeout: 35000
+  application:
+    name: contact-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ayush.jhanwar@needibay.com
+    password: qpbx bwod chdk ctwd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        transport:
+          protocol: smtp
+        debug: true
+app:
+  jwtSecret: JWTSuperSecretKey
+  jwtExpirationInMs: 604800000
+  upload-dir: ./uploads/files
+  file:
+    storage:
+      mapping: file:/Users/geniodev/needibay-crm-workspace/stackwit-contact-service/uploads
+server:
+  port: 8084
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+BASE_URL: http://localhost:8111/api/v1
+
+
+email:
+  recipients: "ayushjhanwar12@gmail.com,amit@needibay.com,partik.tanwer@needibay.com"
+  subject:
+    loggingFilter: "Error in LoggingFilter"
+    globalExceptionHandler: "Error in GlobalExceptionHandler"

@@ -1,0 +1,60 @@
+package com.needibay.cart.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "nb_invoice")
+@Getter
+@Setter
+@ToString
+public class Invoice implements Serializable {
+    @Id
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "vendor_id")
+    private Integer vendorId;
+
+    @Column(name = "quote_id")
+    private Integer quoteId;
+
+    @Column(name = "order_id")
+    private Integer orderId;
+
+    @Column(name = "invoice_increment_id")
+    private String invoiceIncrementId;
+
+    @Column(name = "item_total_amount_excl_tax")
+    private String itemTotalAmountExcludingTax;
+
+    @Column(name = "tax_amount")
+    private String taxAmount;
+
+    @Column(name = "taxPercent")
+    private String taxPercent;
+
+    @Column(name = "currency")
+    private String currency;
+
+    @Column(name = "shipping_charge_amount")
+    private String shippingChargeAmount;
+
+    @Column(name = "invoice_customer_note")
+    private String invoiceCustomerNote;
+
+    @Column(name = "due_date")
+    private String dueDate;
+
+    @Column(name = "grand_total_incl_tax")
+    private String grandTotalIncludingTax;
+
+    public Invoice() {}
+
+
+}
